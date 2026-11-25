@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinPlan | Personal Finance Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+
+        <a href="#home" class="logo">Fin<span>Plan</span></a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="#login" class="btn btn-outline">Login</a>
+            <a href="#register" class="btn btn-primary">Get Started</a>
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- Home Section -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">YOUR MONEY, YOUR PLAN</p>
+
+                <h1>Take control of your money with <span>FinPlan.</span></h1>
+
+                <p class="hero-description">
+                    Track your income, manage expenses, set budgets and reach
+                    your savings goals — all in one place.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#register" class="btn btn-primary">Create Free Account</a>
+                    <a href="#features" class="btn btn-outline">Explore Features</a>
+                </div>
+
+                <div class="hero-note">
+                    <span>✓</span> Simple expense tracking
+                    <span>✓</span> Smarter budgeting
+                </div>
+
+            </div>
+
+            <div class="hero-card">
+
+                <div class="preview-header">
+
+                    <div>
+                        <p class="muted">Total Balance</p>
+                        <h2>₹45,850.00</h2>
+                    </div>
+
+                    <span class="balance-icon">₹</span>
+
+                </div>
+
+                <div class="preview-stats">
+
+                    <div class="stat-box income-box">
+                        <p>Income</p>
+                        <h3>₹60,000</h3>
+                    </div>
+
+                    <div class="stat-box expense-box">
+                        <p>Expenses</p>
+                        <h3>₹14,150</h3>
+                    </div>
+
+                </div>
+
+                <div class="preview-progress">
+
+                    <div class="progress-heading">
+                        <span>Monthly Budget</span>
+                        <strong>70%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <p class="muted">You're doing well. Keep saving!</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================== -->
+        <!-- FINPLAN USER DASHBOARD -->
+        <!-- ====================================== -->
+
+        <section class="dashboard-section section" id="dashboard" style="display: none;">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">YOUR FINANCIAL OVERVIEW</p>
+
+                <h2>Welcome, <span id="dashboardUserName">User</span>!</h2>
+
+                <p>Here's an overview of your finances.</p>
+
+            </div>
+
+
+            <!-- Dashboard Summary -->
+            <div class="dashboard-grid">
+
+                <div class="feature-card">
+                    <h3>Total Balance</h3>
+                    <h2 id="totalBalance">₹0.00</h2>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Total Income</h3>
+                    <h2 id="totalIncome">₹0.00</h2>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Total Expenses</h3>
+                    <h2 id="totalExpenses">₹0.00</h2>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Monthly Savings</h3>
+                    <h2 id="monthlySavings">₹0.00</h2>
+                </div>
+
+            </div>
+
+
+            <!-- Monthly Overview -->
+            <div class="feature-card" style="margin-top: 25px;">
+
+                <h3>Monthly Overview</h3>
+
+                <p>
+                    Monthly Income:
+                    <strong id="monthlyIncome">₹0.00</strong>
+                </p>
+
+                <p>
+                    Monthly Expenses:
+                    <strong id="monthlyExpenses">₹0.00</strong>
+                </p>
+
+                <p>
+                    Savings Rate:
+                    <strong id="savingsRate">0%</strong>
+                </p>
+
+            </div>
+
+
+            <!-- Add New Transaction -->
+            <div class="feature-card" style="margin-top: 25px;">
+
+                <h3>Add New Transaction</h3>
+
+                <form id="transactionForm">
+
+                    <label for="transactionType">Transaction Type</label>
+
+                    <select id="transactionType" required>
+                        <option value="">Select Type</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+
+                    <label for="transactionAmount">Amount</label>
+
+                    <input
+                        type="number"
+                        id="transactionAmount"
+                        placeholder="Enter amount"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+
+                    <label for="transactionCategory">Category</label>
+
+                    <input
+                        type="text"
+                        id="transactionCategory"
+                        placeholder="Example: Food, Salary, Travel"
+                        required
+                    >
+
+                    <label for="transactionDescription">Description</label>
+
+                    <input
+                        type="text"
+                        id="transactionDescription"
+                        placeholder="Enter description"
+                    >
+
+                    <label for="transactionDate">Date</label>
+
+                    <input
+                        type="date"
+                        id="transactionDate"
+                        required
+                    >
+
+                    <label for="paymentMethod">Payment Method</label>
+
+                    <select id="paymentMethod" required>
+                        <option value="">Select Payment Method</option>
+                        <option value="Cash">Cash</option>
+                        <option value="UPI">UPI</option>
+                        <option value="Card">Card</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">
+                        Add Transaction
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- Recent Transactions -->
+            <div class="feature-card" style="margin-top: 25px;">
+
+                <h3>Recent Transactions</h3>
+
+                <div id="recentTransactions">
+                    <p>No transactions available yet.</p>
+                </div>
+
+            </div>
+
+
+            <!-- Transaction History -->
+            <div class="feature-card" style="margin-top: 25px;">
+
+                <h3>Transaction History</h3>
+
+                <div class="transaction-filters">
+
+                    <input
+                        type="text"
+                        id="searchTransaction"
+                        placeholder="Search by category..."
+                    >
+
+                    <select id="filterTransactionType">
+                        <option value="all">All Transactions</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+
+                </div>
+
+                <div id="allTransactions">
+                    <p>No transactions available yet.</p>
+                </div>
+
+            </div>
+
+
+            <!-- FINANCIAL CHARTS -->
+            <div class="charts-section" style="margin-top: 30px;">
+
+                <h2>Financial Analytics</h2>
+
+                <p>Understand your financial activity through visual reports.</p>
+
+                <div class="charts-container">
+
+                    <div class="feature-card">
+                        <h3>Income vs Expenses</h3>
+                        <canvas id="incomeExpenseChart"></canvas>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Expense Breakdown</h3>
+                        <canvas id="expenseBreakdownChart"></canvas>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ====================================== -->
+            <!-- BUDGET PLANNING -->
+            <!-- ====================================== -->
+
+            <div class="feature-card budget-section" style="margin-top: 25px;">
+
+                <h3>🎯 Budget Planning</h3>
+
+                <p>
+                    Create monthly budgets and monitor your spending.
+                </p>
+
+                <form id="budgetForm">
+
+                    <label for="budgetCategory">Category</label>
+
+                    <input
+                        type="text"
+                        id="budgetCategory"
+                        placeholder="Example: Food, Travel, Shopping"
+                        required
+                    >
+
+                    <label for="budgetAmount">Monthly Budget Amount</label>
+
+                    <input
+                        type="number"
+                        id="budgetAmount"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="Enter budget amount"
+                        required
+                    >
+
+                    <label for="budgetMonth">Month</label>
+
+                    <select id="budgetMonth" required>
+                        <option value="">Select Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+
+                    <label for="budgetYear">Year</label>
+
+                    <input
+                        type="number"
+                        id="budgetYear"
+                        min="2026"
+                        value="2026"
+                        required
+                    >
+
+                    <button type="submit" class="btn btn-primary">
+                        Create Budget
+                    </button>
+
+                </form>
+
+                <h3 style="margin-top: 30px;">Your Monthly Budgets</h3>
+
+                <div id="budgetList">
+                    <p>No budgets available yet.</p>
+                </div>
+
+            </div>
+
+
+            <!-- ====================================== -->
+            <!-- SAVINGS GOALS -->
+            <!-- ====================================== -->
+
+            <div class="feature-card goals-section" style="margin-top: 25px;">
+
+                <h3>💰 Savings Goals</h3>
+
+                <p>
+                    Set your financial targets, add savings and track your progress.
+                </p>
+
+                <!-- Create Savings Goal -->
+                <form id="goalForm">
+
+                    <label for="goalName">Goal Name</label>
+
+                    <input
+                        type="text"
+                        id="goalName"
+                        placeholder="Example: Buy a Laptop, Emergency Fund"
+                        required
+                    >
+
+                    <label for="goalTargetAmount">Target Amount</label>
+
+                    <input
+                        type="number"
+                        id="goalTargetAmount"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="Enter target amount"
+                        required
+                    >
+
+                    <label for="goalTargetDate">Target Date</label>
+
+                    <input
+                        type="date"
+                        id="goalTargetDate"
+                        required
+                    >
+
+                    <button type="submit" class="btn btn-primary">
+                        Create Savings Goal
+                    </button>
+
+                </form>
+
+                <!-- Display Savings Goals -->
+                <h3 style="margin-top: 30px;">Your Savings Goals</h3>
+
+                <div id="goalsList">
+                    <p>No savings goals available yet.</p>
+                </div>
+
+            </div>
+
+
+            <!-- Logout -->
+            <button
+                type="button"
+                class="btn btn-outline"
+                id="logoutButton"
+                style="margin-top: 25px;"
+            >
+                Logout
+            </button>
+
+        </section>
+
+
+        <!-- ====================================== -->
+        <!-- FEATURES SECTION -->
+        <!-- ====================================== -->
+
+        <section class="features section" id="features">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">WHAT FINPLAN OFFERS</p>
+
+                <h2>Everything you need to manage your money</h2>
+
+                <p>
+                    Organize your finances and make better financial decisions.
+                </p>
+
+            </div>
+
+            <div class="feature-grid">
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">📊</div>
+
+                    <h3>Dashboard</h3>
+
+                    <p>
+                        View your income, expenses, balance and savings in one place.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">💳</div>
+
+                    <h3>Expense Tracking</h3>
+
+                    <p>
+                        Record and monitor your daily income and expenses.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">🎯</div>
+
+                    <h3>Budget Planning</h3>
+
+                    <p>
+                        Set monthly spending limits and monitor your budget.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">💰</div>
+
+                    <h3>Savings Goals</h3>
+
+                    <p>
+                        Create savings targets and track your progress.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">📈</div>
+
+                    <h3>Reports</h3>
+
+                    <p>
+                        Understand your spending patterns through reports and charts.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">🌍</div>
+
+                    <h3>Multiple Currencies</h3>
+
+                    <p>
+                        Choose your preferred currency when creating your account.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================== -->
+        <!-- ABOUT SECTION -->
+        <!-- ====================================== -->
+
+        <section class="about section" id="about">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">ABOUT FINPLAN</p>
+
+                <h2>Plan smarter. Spend wiser. Save better.</h2>
+
+                <p>
+                    FinPlan is a personal finance management application
+                    designed to help users organize their money, understand
+                    their spending habits and work towards their financial goals.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================== -->
+        <!-- REGISTRATION SECTION -->
+        <!-- ====================================== -->
+
+        <section class="auth-section section" id="register">
+
+            <div class="auth-card">
+
+                <p class="eyebrow">JOIN FINPLAN</p>
+
+                <h2>Create your account</h2>
+
+                <p class="muted">
+                    Start managing your personal finances today.
+                </p>
+
+                <form id="registerForm">
+
+                    <label for="registerName">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="registerName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                    <label for="registerEmail">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <label for="registerPassword">Password</label>
+
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Create a password"
+                        minlength="8"
+                        required
+                    >
+
+                    <label for="currency">
+                        Choose Your Preferred Currency
+                    </label>
+
+                    <select id="currency" required>
+                        <option value="">Select currency</option>
+                        <option value="INR">INR - Indian Rupee (₹)</option>
+                        <option value="USD">USD - US Dollar ($)</option>
+                        <option value="EUR">EUR - Euro (€)</option>
+                        <option value="GBP">GBP - British Pound (£)</option>
+                        <option value="JPY">JPY - Japanese Yen (¥)</option>
+                        <option value="AED">AED - UAE Dirham</option>
+                        <option value="AUD">AUD - Australian Dollar</option>
+                        <option value="CAD">CAD - Canadian Dollar</option>
+                        <option value="SGD">SGD - Singapore Dollar</option>
+                        <option value="SAR">SAR - Saudi Riyal</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Create Account
+                    </button>
+
+                </form>
+
+                <p class="auth-switch">
+                    Already have an account?
+                    <a href="#login">Login</a>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================== -->
+        <!-- LOGIN SECTION -->
+        <!-- ====================================== -->
+
+        <section class="auth-section section" id="login">
+
+            <div class="auth-card">
+
+                <p class="eyebrow">WELCOME BACK</p>
+
+                <h2>Login to FinPlan</h2>
+
+                <p class="muted">
+                    Access your personal finance dashboard.
+                </p>
+
+                <form id="loginForm">
+
+                    <label for="loginEmail">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <label for="loginPassword">Password</label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Login
+                    </button>
+
+                </form>
+
+                <p class="auth-switch">
+                    Don't have an account?
+                    <a href="#register">Create an account</a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <a href="#home" class="logo">Fin<span>Plan</span></a>
+
+        <p>Plan smarter. Spend wiser. Save better.</p>
+
+        <p>© 2026 FinPlan. All rights reserved.</p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

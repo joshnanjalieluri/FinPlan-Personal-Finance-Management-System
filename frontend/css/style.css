@@ -1,0 +1,679 @@
+/* ==============================
+   FINPLAN - MAIN STYLESHEET
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #6956d8;
+    --primary-dark: #5140bd;
+    --secondary: #3985e8;
+    --background: #f8f9ff;
+    --white: #ffffff;
+    --text: #25243a;
+    --muted: #77778b;
+    --border: #e9e8f2;
+    --success: #20a879;
+    --danger: #e65b70;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+/* ==============================
+   NAVIGATION BAR
+================================ */
+
+.navbar {
+    width: 100%;
+    min-height: 75px;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--primary);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+/* ==============================
+   BUTTONS
+================================ */
+
+.btn {
+    display: inline-block;
+    padding: 12px 23px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border-color: var(--border);
+    color: var(--primary);
+    background: var(--white);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    background: #f4f1ff;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 22px;
+}
+
+/* ==============================
+   HERO SECTION
+================================ */
+
+.hero {
+    min-height: 570px;
+    padding: 90px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    background: linear-gradient(120deg, #f7f5ff, #eef5ff);
+}
+
+.hero-content {
+    max-width: 560px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 490px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-note {
+    margin-top: 30px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.hero-note span {
+    color: var(--success);
+    font-weight: 800;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+/* ==============================
+   DASHBOARD PREVIEW CARD
+================================ */
+
+.hero-card {
+    width: 390px;
+    min-width: 300px;
+    padding: 28px;
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: 0 20px 60px rgba(75, 65, 150, 0.12);
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.preview-header h2 {
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+.balance-icon {
+    width: 50px;
+    height: 50px;
+    background: #eeeaff;
+    color: var(--primary);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.preview-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.stat-box {
+    flex: 1;
+    padding: 17px;
+    border-radius: 12px;
+}
+
+.stat-box p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.stat-box h3 {
+    font-size: 17px;
+    margin-top: 7px;
+}
+
+.income-box {
+    background: #eafaf3;
+}
+
+.income-box h3 {
+    color: var(--success);
+}
+
+.expense-box {
+    background: #fff0f1;
+}
+
+.expense-box h3 {
+    color: var(--danger);
+}
+
+.preview-progress {
+    margin-top: 30px;
+}
+
+.progress-heading {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.progress-heading strong {
+    color: var(--primary);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 9px;
+    border-radius: 20px;
+    background: #eceaf4;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-fill {
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 20px;
+}
+
+/* ==============================
+   GENERAL SECTIONS
+================================ */
+
+.section {
+    padding: 85px 10%;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 45px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.section-heading > p:last-child {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ==============================
+   FEATURES
+================================ */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px rgba(75, 65, 150, 0.10);
+    border-color: #d6cffc;
+}
+
+.feature-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0edff;
+    border-radius: 13px;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ==============================
+   ABOUT SECTION
+================================ */
+
+.about {
+    background: #f0edff;
+}
+
+.about .section-heading {
+    margin-bottom: 0;
+}
+
+.about .section-heading h2 {
+    color: var(--primary-dark);
+}
+
+/* ==============================
+   LOGIN AND REGISTER
+================================ */
+
+.auth-section {
+    display: flex;
+    justify-content: center;
+    background: var(--background);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 38px;
+    background: var(--white);
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 40px rgba(75, 65, 150, 0.07);
+}
+
+.auth-card h2 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.auth-card > .muted {
+    margin-bottom: 25px;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-card label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    margin-top: 17px;
+}
+
+.auth-card input,
+.auth-card select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fcfcff;
+    outline: none;
+    font-size: 13px;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(105, 86, 216, 0.10);
+}
+
+.auth-switch {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 22px;
+    color: var(--muted);
+}
+
+.auth-switch a {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* ==============================
+   FOOTER
+================================ */
+
+.footer {
+    text-align: center;
+    padding: 35px 15px;
+    background: #25243a;
+    color: #ffffff;
+}
+
+.footer .logo {
+    color: #ffffff;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 12px;
+    color: #c2c1d1;
+    margin-top: 7px;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 900px) {
+
+    .hero {
+        padding: 70px 7%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-card {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .navbar nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    .nav-buttons {
+        gap: 7px;
+    }
+
+    .nav-buttons .btn {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    .hero {
+        padding: 60px 7%;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-card {
+        min-width: 0;
+        padding: 20px;
+    }
+
+    .preview-header h2 {
+        font-size: 24px;
+    }
+
+    .stat-box {
+        padding: 12px;
+    }
+
+    .stat-box h3 {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 65px 7%;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-card {
+        padding: 25px;
+    }
+
+}
+/* =====================================
+   FINPLAN FINANCIAL CHARTS
+===================================== */
+
+.charts-section {
+    width: 100%;
+    margin: 30px auto;
+}
+
+.charts-section h2 {
+    margin-bottom: 10px;
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+    align-items: start;
+}
+
+.charts-container .feature-card {
+    min-width: 0;
+    padding: 22px;
+}
+
+.charts-container canvas {
+    width: 100% !important;
+    height: 260px !important;
+    max-height: 260px;
+}
+
+@media (max-width: 768px) {
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* =====================================
+   FINPLAN SAVINGS GOALS
+===================================== */
+
+.goal-card {
+    background: #ffffff;
+    border: 1px solid #e9e8f2;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 18px;
+}
+
+.goal-card h4 {
+    font-size: 19px;
+    margin-bottom: 12px;
+    color: #25243a;
+}
+
+.goal-card p {
+    margin: 9px 0;
+    color: #77778b;
+}
+
+.goal-progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e9e8f2;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 12px 0;
+}
+
+.goal-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6956d8, #3985e8);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.goal-card button {
+    margin: 8px 8px 0 0;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #6956d8;
+    color: white;
+}
+
+.goal-card button:hover {
+    background: #5140bd;
+}
+
+.goal-card button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
