@@ -2,7 +2,7 @@
 // FINPLAN - FRONTEND JAVASCRIPT
 // ==========================================
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://finplan-personal-finance-management.onrender.com/api";
 
 let allTransactionsData = [];
 let allBudgetsData = [];
